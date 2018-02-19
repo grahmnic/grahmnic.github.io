@@ -1,0 +1,5 @@
+<ion-list>
+    <ion-list-header>Select a Method</ion-list-header>
+    <button ion-item *ngFor="let method of methods" (click)="select(method)">{{method}}</button>
+    <button ion-item (click)="close()">Cancel</button>
+</ion-list>

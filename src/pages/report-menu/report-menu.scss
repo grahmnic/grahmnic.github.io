@@ -1,0 +1,77 @@
+button.menuButton {
+    height: 10em;
+    width: 10em;
+}
+
+.menu2 { text-align: center !important; }
+
+@media (max-width: 300px) {
+    button.menuButton { font-size: 70% !important; width: 100px !important; }
+}
+
+@media (min-width: 500px) {
+    button.menuButton { font-size: 80% !important; width: 150px !important; }
+}
+
+@media (min-width: 700px) {
+    button.menuButton { font-size: 100% !important; width: 200px !important; }
+}
+
+@media (min-width: 1200px) {
+    button.menuButton { font-size: 130% !important; width: 300px !important; }
+}
+
+.delay-1{
+    animation-delay: 0.15s
+}
+
+.delay-2 {
+    animation-delay: 0.3s;
+}
+
+.delay-3 {
+    animation-delay: 0.45s;
+}
+
+button.confirm {
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    size: 65%;
+}
+
+page-report-menu {
+        p.f {
+            font-size: 1em;
+            color: #ea6153;
+            margin-left: 10px;
+        }
+
+        .invalid {
+            border: 1px solid #ea6153;
+        }
+
+        ion-note {
+            font-size: 1em;
+        }
+
+        ion-select {
+            max-width: 25vw !important;
+            width: 25vw !important;
+            background-color: grey;
+            border-radius: 5px;
+            margin-bottom: 1.5vh;
+            margin-top: 1.5vh;
+        }
+
+        ion-note.disabled {
+            color: #ea6153 !important;
+            font-size: 0.8em !important;
+        }
+
+        ion-toast.toast .toast-wrapper {
+            background-color: green;
+        }
+}

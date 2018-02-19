@@ -1,0 +1,34 @@
+ion-grid.scroll {
+    overflow:scroll !important;
+}
+
+$grid-padding-width:         10px !default;
+
+$grid-padding-widths: (
+  xs: $grid-padding-width,
+  sm: $grid-padding-width,
+  md: $grid-padding-width,
+  lg: $grid-padding-width,
+  xl: $grid-padding-width
+) !default;
+
+page-report-details {
+    .col {
+        border: 1px solid black;
+        text-align:center;
+    }
+
+    ion-col.title {
+        background-color: grey;
+    }
+
+    ion-col.titleL {
+        background-color: grey;
+        width: 100%;
+    }
+    
+    p {
+        margin-left: 5vw;
+    }
+}
+

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Recently Added Reports
+    </ion-title>        
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items"> 
+      <ion-item (click)="viewItem(item)">
+        {{item.getSampleName()}}<ion-note style = 'margin-left: 20vw; font-size: 12px'>Swipe to delete</ion-note>
+         <div class="dec">{{item.getMonthYear() | date:'MMMM y'}}</div>
+      </ion-item>
+
+      <ion-item-options>
+        <button danger (click)="removeItem(item)"><ion-icon name="trash"></ion-icon> Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

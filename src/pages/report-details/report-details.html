@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{sampleName}} for {{monthYear}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <p>
+    {{reportTitle}}
+    <br> Month/Year: {{monthYear}}
+  </p>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid class='scroll'>
+        <ion-row style="font-weight: 400" align-items-center nowrap>
+          <ion-col class='title' col-4>
+            Date
+          </ion-col>
+          <ion-col class='title' col-4>
+            SampleID
+          </ion-col>
+          <ion-col class='title' col-4>
+            Sample
+          </ion-col>
+          <ion-col class='titleL' col-auto>
+            Analytes ({{report.getUnit()}})
+          </ion-col>
+        </ion-row>
+        <ion-row align-items-center nowrap>
+          <ion-col class='title' col-4>
+            Received
+          </ion-col>
+          <ion-col class='title' col-4>
+            SampleID
+          </ion-col>
+          <ion-col class='title' col-4>
+            Source
+          </ion-col>
+          <ion-col class='title' *ngFor="let analyte of analytes" col-4>
+            {{analyte}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let source of sources; let i = index" nowrap>
+          <ion-col col-4>
+            {{dates[i]}}
+          </ion-col>
+          <ion-col col-4>
+            {{samples[i]}}
+          </ion-col>
+          <ion-col col-4>
+            {{sources[i]}}
+          </ion-col>
+          <ion-col *ngFor="let analyte of analytes; let x = index" col-4>
+            {{amounts[i][x]}}
+          </ion-col>
+        </ion-row>
+        <ion-row nowrap>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4>
+            EPA Method Number
+          </ion-col>
+          <ion-col *ngFor="let method of methods; let s = index" col-4>
+            {{methods[s]}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      Comments: <br> {{comments}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

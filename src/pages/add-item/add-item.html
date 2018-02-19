@@ -1,0 +1,133 @@
+<ion-header class = "{{selectedTheme}} animated slideInLeft">
+  <ion-toolbar>
+    <ion-title>
+      {{sampleName}} Form
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class = "{{selectedTheme}} animated slideInUp" *ngIf="sampleName == 'DLSS' || sampleName == 'BSS' || sampleName == 'test'">  <ion-item>
+    <ion-label floating>Month/Year</ion-label>
+    <ion-datetime displayFormat="MMMM YYYY" [(ngModel)]="monthYear"></ion-datetime>
+  </ion-item>
+  <p class="f" *ngIf="boolMonthYear == false">Please enter a month and year.</p>
+
+  <ion-item *ngFor="let source of sourceOptions; let x = index">
+    <button ion-button round class="an" (click)="toggleDetails(x)"><ion-icon class="acc" color="primary" name="icon[x]"></ion-icon>{{source}}</button>
+
+    <ion-list *ngIf="showDetails[x]">
+      <ion-item>
+        <ion-label floating>Sample ID</ion-label>
+        <ion-input type="text" [(ngModel)]="sampleID[x]"></ion-input>
+      </ion-item>
+
+      <p class="f" *ngIf="boolSampleID[x] == false">Please enter a valid Sample ID.</p>
+
+      <ion-item>
+        <ion-label floating>Date Received</ion-label>
+        <ion-datetime displayFormat="MM/DD/YY" [(ngModel)]="dateReceived[x]">
+        </ion-datetime>    
+      </ion-item>
+      <button *ngIf="dateReceived[x] !== ''" ion-button  class="dt" (click)="defaultDate(dateReceived[x])">Set as default</button>  
+      <p class="f" *ngIf="boolDate[x] == false">Please choose a date.</p>
+
+      <ion-item>
+        <ion-label floating>Default Unit</ion-label>
+        <ion-select [(ngModel)]="unitID">
+          <ion-option *ngFor="let unit of unitOptions" value="{{unit}}">{{unit}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <p class="f" *ngIf="boolUnit == false">Please choose a unit.</p>
+
+      <br>
+      <ion-grid *ngIf="platform.isPortrait() == true">
+        <ion-row *ngFor="let analyte of analyteOptions; let i = index" align-items-center>
+          <ion-col col-4>
+            <ion-label class="lbl">{{analyteOptions[i]}}</ion-label>
+          </ion-col>
+          <ion-col col-4>
+              <input class="inp" placeholder="Result" type="text" [(ngModel)]="storeResults[x][i]">
+          </ion-col>
+          <ion-col col-4>
+              <button style="font-size: 10px; width: 22vw" ion-button icon-only (click)="presentPopover($event, i)">{{methodPlaceholder[i]}}</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngIf="platform.isLandscape() == true">
+        <ion-row *ngFor="let analyte of analyteOptions; let i = index" align-items-center>
+          <ion-col col-4>
+            <ion-label class="lbl">{{analyteOptions[i]}}</ion-label>
+          </ion-col>
+          <ion-col col-4>
+              <input class="inp" placeholder="Result" type="text" [(ngModel)]="storeResults[x][i]">
+          </ion-col>
+          <ion-col col-4>
+              <button style="font-size: 10px; width: 15vw" ion-button icon-only (click)="presentPopover($event, i)">{{methodPlaceholder[i]}}</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <p class="f" *ngIf="boolResults[x] == false">Please enter the analyte fields correctly.</p>
+  </ion-item>
+  <ion-label style="margin-left: 5vw; font-weight: bold; font-size: 14px">Comments</ion-label>
+  <ion-item>
+    <ion-textarea class="comments" rows="10" [(ngModel)]="comments"></ion-textarea>
+  </ion-item>
+  <br>
+
+  <button full ion-button color="primary" (click)="saveItem()">Save</button>
+</ion-content>
+
+<ion-content class = "{{selectedTheme}} animated slideInUp" *ngIf="sampleName == 'PE'">
+  <ion-list *ngIf="subType == 'W'">
+    <ion-item *ngFor="let source of sourceOptions; let x = index">
+      <button ion-button round class="an" (click)="toggleDetails(x)"><ion-icon class="acc" color="primary" name="icon[x]"></ion-icon>{{source}}</button>
+      <ion-list *ngIf="showDetails[x]">
+        <ion-item>
+          <ion-label floating>Date of Sample</ion-label>
+          <ion-datetime displayFormat="MM/DD/YY" [(ngModel)]="dateReceived[x]"></ion-datetime>
+        </ion-item>
+        <p class="f" *ngIf="boolDate[x] == false">Please choose a date.</p>
+
+        <ion-item>
+          <ion-label floating>Sample Number</ion-label>
+          <ion-input type="text" [(ngModel)]="sampleID[x]"></ion-input>
+        </ion-item>
+        <p class="f" *ngIf="boolSampleID[x] == false">Please enter a valid Sample ID.</p>
+
+        <ion-item>
+          <ion-label floating>Default Unit</ion-label>
+          <ion-select [(ngModel)]="unitID">
+            <ion-option *ngFor="let unit of unitOptions" value="{{unit}}">{{unit}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <br>
+        <div class="row">
+          <div class="col" style="display:flex; align-items:center">
+            <ion-label class="lbl">{{analyteOptions[0]}}</ion-label>
+          </div>
+          <div class="col" style="display:flex; align-items:center; width: 15vw">
+            <input class="inp" placeholder="Result" type="text" [(ngModel)]="storeResults[x][0]">
+          </div>
+          <div class="col" style="display:flex; align-items:center; font-size: 4vw">
+            <ion-label>{{unitID}}</ion-label>
+          </div>
+        </div>
+      </ion-list>
+      <p class="f" *ngIf="boolResults[x] == false">Please enter the analyte results correctly.</p>
+
+    </ion-item>
+  </ion-list>
+  <ion-label style="margin-left: 1em; font-weight: bold; font-size: 14px">Comments</ion-label>
+  <ion-item>
+    <ion-textarea class="comments" rows="10" [(ngModel)]="comments"></ion-textarea>
+  </ion-item>
+  <button full ion-button color="primary" (click)="saveItem()">Save</button>
+</ion-content>

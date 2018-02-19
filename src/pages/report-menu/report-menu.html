@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ViewReportsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Report Menu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid *ngIf="platform.isPortrait() == true" class="menu2" align-items-self>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button class="menuButton animated fadeIn" icon-start (click)="openMenu()"><ion-icon name="add-circle"></ion-icon>Add Report</button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button class="menuButton animated fadeIn delay-1" icon-start (click)="viewItems()"><ion-icon name="archive"></ion-icon>View Reports</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="platform.isLandscape() == true" class="menu" align-items-self>
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button class="menuButton animated fadeIn" icon-start (click)="openMenu()"><ion-icon name="add-circle"></ion-icon>Add Report</button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="menuButton animated fadeIn delay-1" icon-start (click)="viewItems()"><ion-icon name="archive"></ion-icon>View Reports</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item *ngIf="menuCheck == true" class="animated fadeInLeft">
+    <ion-select [(ngModel)]="reportType">
+      <ion-option *ngFor="let type of reportTypes" value="{{type}}" (change)="reportTypeCheck()">{{type}}</ion-option>
+    </ion-select>
+    <ion-note item-end>Select a form template.</ion-note>
+  </ion-item>
+  <p class="f" *ngIf="typeCheck == false">Please choose a base template.</p>
+  <p class="f" *ngIf="isDisabled()">Form template has been disabled.<br>Please select another template.</p>
+  <ion-item *ngIf="reportTypeCheck() != ''">
+    <ion-select *ngIf="reportTypeCheck() == 'pe'" [(ngModel)]="subType">
+      <ion-option *ngFor="let subtype of reportWMQTypes" value="{{subtype}}">{{getType(subtype)}}</ion-option>
+    </ion-select>
+    <ion-select *ngIf="reportTypeCheck() == 'iw'" [(ngModel)]="subType">
+      <ion-option *ngFor="let subtype of reportIWTypes" value="{{subtype}}">{{getType(subtype)}}</ion-option>
+    </ion-select>
+    <ion-note item-end>Select a form sub-type.</ion-note>
+
+  </ion-item>
+  <p class="f" *ngIf="subCheck == false && reportTypeCheck() !=''">Please choose a template subtype.</p>
+  <button *ngIf="!isDisabled() && menuCheck == true" ion-button class="confirm animated fadeInRight" icon-start (click)="addItem()">Confirm</button>
+
+
+</ion-content>

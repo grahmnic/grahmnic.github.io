@@ -1,0 +1,54 @@
+$header-size: 20px;
+$primary-size: 14px;
+$primary-border: 1px solid grey;
+$primary-border-rad: 5px;
+
+h1 {
+    font-size: $header-size;
+}
+
+h2 {
+    font-size: $header-size/1.5;
+    font-weight: 400px;
+}
+
+p.intro {
+    font-size: $primary-size;
+    text-align: center;
+}
+
+p.version {
+    font-size: $primary-size;
+    border: $primary-border;
+    border-radius: $primary-border-rad;
+    padding: 10px;
+}
+
+
+    page-home {
+        .delay-1 {
+            animation-duration: 4s;
+        }
+
+        button {
+            margin-top: 1.5vh !important;
+            margin-bottom: 1.5vh !important;
+            background-color: crimson !important;
+
+        }
+
+        img {
+            max-width: 25em;
+            max-height: 12.5em;
+        }
+
+        ion-alert input {
+            width: 1.5em !important;
+            height: 1.5em !important;
+        }
+    }
+
+ion-toast.toast .toast-wrapper{
+    background: #01DF74;
+}
+

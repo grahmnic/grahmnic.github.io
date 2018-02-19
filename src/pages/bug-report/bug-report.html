@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Submit a Bug Report
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-textarea rows="25" placeholder="Enter bug description here." [(ngModel)]="body"></ion-textarea>
+    <button ion-button small (click)="sendBug()">Send</button>
+</ion-content>

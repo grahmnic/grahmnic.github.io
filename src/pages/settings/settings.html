@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="platform.isLandscape() == true">
+    <ion-item class="animated fadeInDown">
+      <ion-label>Toggle Dark Mode (Not at 100% functionality)</ion-label>
+      <ion-toggle (ionChange)="toggleAppTheme()"></ion-toggle>
+    </ion-item>
+    <br>
+    <ion-item class="settings" no-lines>
+      <button class="animated fadeIn delay-1" ion-button icon-left (click)="toggleTutorial()"><ion-icon name="help-circle"></ion-icon>Tutorial</button>
+      <button class="animated fadeIn delay-2" ion-button icon-left (click)="toggleResultStorage()"><ion-icon name="git-compare"></ion-icon>Reset Result</button>
+      <button class="animated fadeIn delay-3" ion-button icon-left (click)="toggleValidatorsMenu()"><ion-icon name="ion-alert-circled"></ion-icon>Set Requirements</button>
+    </ion-item>
+
+    <ion-list class="animated fadeInUp" *ngIf="validatorMenu == true" no-lines>
+      <ion-item>
+        <ion-label>Toggle Results</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Toggle Units</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Toggle Methods</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+
+  <ion-list class="settings" *ngIf="platform.isPortrait() == true">
+      <ion-item class="animated fadeInDown">
+        <ion-label>Toggle Dark Mode</ion-label>
+        <ion-toggle (ionChange)="toggleAppTheme()"></ion-toggle>
+      </ion-item>
+      <button style="margin-top: 1em" class="animated fadeIn delay-1" ion-button icon-left (click)="toggleTutorial()"><ion-icon name="help-circle"></ion-icon>Tutorial</button>
+        <button style="margin-top: 1em" class="animated fadeIn delay-2" ion-button icon-left (click)="toggleResultStorage()"><ion-icon name="git-compare"></ion-icon>Reset Result</button>
+        <button class="animated fadeIn delay-3" ion-button icon-left (click)="toggleValidatorsMenu()"><ion-icon name="ion-alert-circled"></ion-icon>Set Requirements</button>
+    <ion-item>
+      <ion-list class="animated fadeInUp" *ngIf="validatorMenu == true" no-lines>
+        <ion-item>
+          <ion-label>Toggle Results</ion-label>
+          <ion-toggle></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Toggle Units</ion-label>
+          <ion-toggle></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Toggle Methods</ion-label>
+          <ion-toggle></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

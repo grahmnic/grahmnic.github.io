@@ -1,0 +1,38 @@
+<ion-slides class={{selectedClass}} pager = "true" paginationType = "coverflow">
+
+  <ion-slide>
+    <img src="images/slides1.png"/>
+    <p>Welcome! This is the home page. To open the Report Menu, you can press on the Report Tab.</p>
+  </ion-slide>
+
+  <ion-slide>
+    <img src="images/slides2.png"/>
+    <p>You can add and view reports here. To add a report, press on the Add Report button.</p>
+  </ion-slide>
+
+  <ion-slide>
+    <img src="images/slides3.png"/>
+    <p>This is the Add Report Menu. Once here, enter the required information and scroll to the bottom and press Save.</p>
+  </ion-slide>
+
+
+  <ion-slide>
+    <img src="images/slides5.png"/>
+    <p>To enter Analyte information, you can press the Analyte button to toggle the Analyte fields.</p>
+  </ion-slide>
+
+
+  <ion-slide>
+    <ion-row class="transY">
+      <ion-col>
+        <img src="images/slides4.png"/>
+      </ion-col>
+    </ion-row>
+    <ion-row class="transY2">
+      <ion-col>
+        <p>If you want to view this tutorial again, press the tutorial button in the Settings tab.</p>
+        <button ion-button color="light" (click)="goToHome()">Got it!</button>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+</ion-slides>

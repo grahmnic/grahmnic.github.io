@@ -1,0 +1,29 @@
+page-about {
+    ion-slide {
+    background-color: #32db64;
+    }
+
+        p {
+            color: #fff;
+            text-align:center;
+            font-size: 0.9em;
+            margin-left: 1vw;
+            margin-right: 1vw;
+        }
+
+    img {
+         height: 25em !important;
+         width: auto !important;
+         margin-bottom: none !important;
+    }
+
+    .transY {
+        transform: translateY(-10%);
+        -webkit-transform: translateY(-10%);
+    }
+
+    .transY2 {
+        transform: translateY(-30%);
+        -webkit-transform: translateY(-30%);
+    }
+}

@@ -1,0 +1,65 @@
+.dark {
+$text-color:                 #fff;
+$link-color:                 color($colors, primary);
+$background-color:           #191919;
+$subdued-text-color:         #666;
+
+$font-family-base:           -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+$font-size-base:             1.4rem; // 1.4rem == 14px
+
+$content-padding:            16px;
+$content-margin:             16px;
+
+$toolbar-background:         #151515;
+$toolbar-border-color:       #222;
+$toolbar-text-color:         $text-color;
+$toolbar-active-color:       $link-color;
+$toolbar-inactive-color:     #8c8c8c;
+
+$tabs-background:            #151515;
+$tabs-border-color:          #222;
+$tabs-tab-color-inactive:    #8c8c8c;
+$tabs-tab-color-active:      $link-color;
+
+$list-text-color:            $text-color;
+$list-background-color:      #242424;
+$list-border-color:          #000;
+
+  ion-content {
+  background-color: $list-background-color  !important;
+  color: $text-color  !important;
+  }
+
+  ion-list {
+      background-color: $list-background-color  !important;
+  }
+
+  ion-item {
+    background-color: $list-background-color  !important;
+  }
+
+  ion-label {
+    color: #8c8c8c;
+  }
+
+  .toolbar-background-md {
+    background-color: $toolbar-background  !important;
+  }
+
+  .toolbar-title-md {
+    color: $text-color  !important;
+  }
+
+  .tabs-md .tab-button {
+    color: white !important;
+  }
+
+  .tab-button {
+    color: white !important;
+    background-color: #000000;
+  }
+
+  .no-scroll .scroll-content{
+     overflow: hidden;
+  }
+}

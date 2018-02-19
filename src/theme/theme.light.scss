@@ -1,0 +1,33 @@
+.light {
+$text-color:                 #000;
+$link-color:                 color($colors, primary);
+$background-color:           #fff;
+$subdued-text-color:         #666;
+
+$font-family-base:           -apple-system, "Helvetica Neue", "Roboto", sans-serif;
+$font-size-base:             1.4rem; // 1.4rem == 14px
+
+$content-padding:            16px;
+$content-margin:             16px;
+
+$toolbar-background:         #f8f8f8;
+$toolbar-border-color:       #b2b2b2;
+$toolbar-text-color:         $text-color;
+$toolbar-active-color:       $link-color;
+$toolbar-inactive-color:     #8c8c8c;
+
+$tabs-background:            #f8f8f8;
+$tabs-border-color:          #b2b2b2;
+$tabs-tab-color-inactive:    green;
+$tabs-tab-color-active:      lightgreen;
+
+$list-text-color:            $text-color;
+$list-background-color:      $background-color;
+$list-border-color:          #c8c7cc;
+
+.no-scroll .scroll-content{
+     overflow: hidden;
+}
+
+}
+
